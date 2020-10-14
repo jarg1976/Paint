@@ -19,14 +19,16 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SplashScreenActivity"
-            android:theme="@style/FullscreenTheme">
+            android:theme="@style/FullscreenTheme"
+           >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
     </application>
 
 </manifest>

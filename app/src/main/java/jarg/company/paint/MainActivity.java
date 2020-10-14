@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.view.MenuItem;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import jarg.company.models.ObjectSerializer;
 import jarg.company.models.Settings;
@@ -130,6 +132,23 @@ public class MainActivity extends AppCompatActivity {
                 this.setUser();
                 this.setUserView();
             }
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        checkOrientation(newConfig);
+    }
+
+    private void checkOrientation(Configuration newConfig){
+        // Checks the orientation of the screen
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            Log.d("OrientationMyApp", "Current Orientation : Landscape");
+            // Your magic here for landscape mode
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            Log.d("OrientationMyApp", "Current Orientation : Portrait");
+            // Your magic here for portrait mode
         }
     }
 
